@@ -39,10 +39,11 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     @objc func doRequest()
     {
+        self.searchBar!.resignFirstResponder()
         self.queryFoursquare(with: self.currentLocation!, searchText: self.searchPlaceString)
     }
     
-    @IBAction func onClick(_ sender: UIButton, forEvent event: UIEvent){
+    @IBAction func onClick(_ sender: UIButton, forEvent event: UIEvent) {
         self.centerMapView(on: self.currentLocation!)
     }
     
@@ -160,6 +161,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             if(timer != nil) {
                 cancelTimer()
             }
+            searchBar.resignFirstResponder()
         }
     }
     
