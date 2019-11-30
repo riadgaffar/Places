@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>intent</key>
+	<string>browse</string>
+	<key>radius</key>
+	<string>16094</string>
+	<key>query</key>
+	<string></string>
+	<key>ll</key>
+	<string></string>
+	<key>v</key>
+	<string>20190401</string>
+	<key>client_secret</key>
+	<string>YK3ZYV5AFIWI1ZD5PAUTANS2NAFAXJJ4KMZ2RE3RYFHZL4R0</string>
+	<key>client_id</key>
+	<string>WFAG1AL2GXGJQGVQQDULNPEJ5KFZOVCVWRO0LDWBG1KQADMR</string>
+</dict>
+</plist>
