@@ -16,19 +16,12 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var searchBar:UISearchBar?
         
     let locationManager = LocationManager()
-    let DELAY:Double = 1.0
+    let DELAY:Double = 0.6
     
     var currentLocation: CLLocation?
     var searchPlaceString: String = ""
-       
     var places = [[String: Any]]()
-    
     var timer:Timer?
-    
-//    private let timerQueue = DispatchQueue(label: "com.timer.queue", attributes: [])
-//    var start: CFTimeInterval?
-//    var totalElapsed: CFTimeInterval?
-//    var timer: DispatchSourceTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,60 +153,23 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (!searchText.isEmpty) {
             searchPlaceString = searchText
-//            if (start == nil) {
-//                restartTimer()
-//            }
-            timer?.invalidate()
-            timer = nil
-            timer = Timer.scheduledTimer(timeInterval: DELAY, target: self, selector: #selector(doRequest), userInfo: nil, repeats: false)
-
+            cancelTimer()
+            startTimer()
         } else {
-            centerMapView(on: self.currentLocation!)
-            places.removeAll()
-            tableView?.reloadData()
-            mapView?.removeAnnotations(mapView!.annotations)
-//            pauseTimer()
+            resetMapView()
             if(timer != nil) {
-                timer?.invalidate()
-                timer = nil
+                cancelTimer()
             }
         }
     }
     
-//    func startTimer() {
-//        timer = DispatchSource.makeTimerSource(queue: timerQueue)
-//        timer?.schedule(deadline: .now(), repeating: 1.0)
-//
-//        timer?.setEventHandler { [weak self] in
-//            guard let start = self?.start else { return }
-//            let elapsed = Int((self?.totalElapsed ?? 0) + CACurrentMediaTime() - start)
-//
-//            print(">>>", elapsed)
-//
-//            if (elapsed >= self!.DELAY) {
-//                self?.queryFoursquare(with: self!.currentLocation!, searchText: self!.searchPlaceString)
-//                self?.pauseTimer()
-//            }
-//        }
-//    }
-//
-//    private func restartTimer() {
-//        start = CACurrentMediaTime()
-//        timer?.resume()
-//    }
-//
-//    private func pauseTimer() {
-//        timer?.suspend()
-//        totalElapsed = 0.0
-//        start = nil
-//    }
-//
-//    func cancelTimer() {
-//            guard let timer = timer else { return }
-//            timer.cancel()
-//    //        self.timer = nil
-//        }
-    
+    func resetMapView() {
+        centerMapView(on: self.currentLocation!)
+        places.removeAll()
+        tableView?.reloadData()
+        mapView?.removeAnnotations(mapView!.annotations)
+    }
+        
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: DELAY, target: self, selector: #selector(doRequest), userInfo: nil, repeats: false)
     }
@@ -221,6 +177,5 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         timer?.invalidate()
         timer = nil
     }
-
 }
 
