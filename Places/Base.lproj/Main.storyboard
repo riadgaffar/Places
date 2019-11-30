@@ -22,9 +22,8 @@
                                 <rect key="frame" x="0.0" y="403" width="375" height="264"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search something" translatesAutoresizingMaskIntoConstraints="NO" id="fm0-vf-vyT">
+                            <searchBar contentMode="redraw" placeholder="Search something" translatesAutoresizingMaskIntoConstraints="NO" id="fm0-vf-vyT">
                                 <rect key="frame" x="0.0" y="355" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxI-S0-JCj">
@@ -37,6 +36,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fm0-vf-vyT" firstAttribute="leading" secondItem="yjx-Zk-BTh" secondAttribute="leading" id="0Ff-2r-dvJ"/>
                             <constraint firstItem="gDt-9t-PM0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0f7-Sy-PLW"/>
                             <constraint firstItem="qxI-S0-JCj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="54p-sq-4oE"/>
                             <constraint firstItem="yjx-Zk-BTh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9YO-Ps-BK8"/>
@@ -48,7 +48,10 @@
                             <constraint firstItem="yjx-Zk-BTh" firstAttribute="height" secondItem="gDt-9t-PM0" secondAttribute="height" constant="-43.5" id="bUd-dq-b5g"/>
                             <constraint firstItem="yjx-Zk-BTh" firstAttribute="top" secondItem="gDt-9t-PM0" secondAttribute="bottom" constant="51.5" id="fRi-KT-0Tv"/>
                             <constraint firstItem="yjx-Zk-BTh" firstAttribute="trailing" secondItem="gDt-9t-PM0" secondAttribute="trailing" id="gpY-S2-RmZ"/>
+                            <constraint firstItem="yjx-Zk-BTh" firstAttribute="top" secondItem="fm0-vf-vyT" secondAttribute="bottom" constant="4" id="iIo-Zb-hAp"/>
                             <constraint firstItem="gDt-9t-PM0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kkP-x4-tk9"/>
+                            <constraint firstItem="fm0-vf-vyT" firstAttribute="top" secondItem="gDt-9t-PM0" secondAttribute="bottom" constant="3.5" id="qXr-0e-qrL"/>
+                            <constraint firstItem="fm0-vf-vyT" firstAttribute="trailing" secondItem="yjx-Zk-BTh" secondAttribute="trailing" id="rlR-AM-fJC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
