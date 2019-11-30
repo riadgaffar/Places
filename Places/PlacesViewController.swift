@@ -80,11 +80,13 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         {
             if  let name      = place["name"] as? String,
                 let latitude  = place["latitude"] as? CLLocationDegrees,
-                let longitude = place["longitude"] as? CLLocationDegrees
+                let longitude = place["longitude"] as? CLLocationDegrees,
+                let distance  = place["distance"] as? String
             {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 annotation.title = name
+                annotation.subtitle = distance + " miles"
 
                 mapView!.addAnnotation(annotation)
             }

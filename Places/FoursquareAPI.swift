@@ -61,20 +61,25 @@ class FoursquareAPI
                 if  let jsonObject = jsonData as? [String: Any],
                     let response   = jsonObject["response"] as? [String: Any],
                     let venues     = response["venues"] as? [[String: Any]] {
-                    
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .decimal
+                    numberFormatter.maximumFractionDigits = 2
                     for venue in venues
                     {
                         if  let name             = venue["name"] as? String,
                             let location         = venue["location"] as? [String: Any],
                             let latitude         = location["lat"] as? Double,
                             let longitude        = location["lng"] as? Double,
-                            let formattedAddress = location["formattedAddress"] as? [String]
+                            let formattedAddress = location["formattedAddress"] as? [String],
+                            let distance         = location["distance"] as? Double
+                            
                         {
                             places.append([
                                 "name": name,
                                 "address": formattedAddress.joined(separator: " "),
                                 "latitude": latitude,
-                                "longitude": longitude
+                                "longitude": longitude,
+                                "distance": numberFormatter.string(from: NSNumber(value: distance * 0.000621371))!
                             ])
                         }
                     }
