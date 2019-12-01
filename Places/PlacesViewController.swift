@@ -90,9 +90,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 
                 mapView!.addAnnotation(annotation)
             }
-
         }
-
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -110,6 +108,17 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
         
         return view
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        cancelTimer()
+        if (!searchText.isEmpty) {
+            searchPlaceString = searchText
+            startTimer()
+        } else {
+            resetMapView()
+            searchBar.resignFirstResponder()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -149,21 +158,6 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 mapView!.selectAnnotation(annotation, animated: true)
                 mapView!.setCenter(annotation.coordinate, animated: true)
             }
-
-        }
-    }
-        
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if (!searchText.isEmpty) {
-            searchPlaceString = searchText
-            cancelTimer()
-            startTimer()
-        } else {
-            resetMapView()
-            if(timer != nil) {
-                cancelTimer()
-            }
-            searchBar.resignFirstResponder()
         }
     }
     
@@ -177,6 +171,7 @@ class PlacesViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: DELAY, target: self, selector: #selector(doRequest), userInfo: nil, repeats: false)
     }
+    
     func cancelTimer() {
         timer?.invalidate()
         timer = nil

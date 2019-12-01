@@ -32,6 +32,7 @@
 		91A5C7772391F5A500B78148 /* Preference.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Preference.plist; sourceTree = "<group>"; };
 		91C1C54423878D52007F2223 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		91C1C54623879051007F2223 /* FoursquareAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
+		91D2A59923936D5C00E0259B /* ctwv.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ctwv.gpx; path = ../../../Downloads/ctwv.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +49,7 @@
 		911820E523823E3600EECD86 = {
 			isa = PBXGroup;
 			children = (
+				91D2A59923936D5C00E0259B /* ctwv.gpx */,
 				911820F023823E3600EECD86 /* Places */,
 				911820EF23823E3600EECD86 /* Products */,
 			);
